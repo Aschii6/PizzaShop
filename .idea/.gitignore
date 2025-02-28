@@ -5,5 +5,3 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-# Other
-/target/

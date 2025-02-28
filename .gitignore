@@ -1,0 +1,44 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Maven target directory
+/target/
+!/target/.gitkeep  # (optional: keeps target/ in repo if empty)
+
+# IntelliJ IDEA
+/.idea/
+!/.idea/codeStyles/
+/*.iml
+/out/
+/*.ipr
+/*.iws
+
+# VS Code
+/.vscode/
+
+# Eclipse
+/.settings/
+/.project
+.classpath
+
+# NetBeans
+/nbproject/private/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Maven wrapper files (optional)
+.mvn/wrapper/maven-wrapper.jar
+
+# Local Maven repository (optional, only if necessary)
+/.m2/
+
+# Temporary files
+*.swp
+*.swo
