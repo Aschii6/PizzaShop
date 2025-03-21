@@ -1,0 +1,11 @@
+controller: KitchenGUIController, MainGUIController, OrdersGUIController
+
+gui: KitchenGUI, OrdersGUI
+
+model: MenuDataModel, Payment, PaymentType
+
+repository: MenuRepository, Payment Repository
+
+service: PaymentAlert, PaymentOperation, PizzaService
+
+Main
