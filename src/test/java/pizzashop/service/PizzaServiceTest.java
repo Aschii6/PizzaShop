@@ -13,25 +13,25 @@ class PizzaServiceTest {
 
     @Test
     @Order(1)
-    @DisplayName("Test for adding a valid payment with ECP")
+    @DisplayName("TC1_ECP")
     void addPaymentValidECP() {
     }
 
     @Test
     @Order(2)
-    @DisplayName("Test for adding a non-valid payment with ECP")
+    @DisplayName("TC2_ECP")
     void addPaymentNonValidECP() {
     }
 
     @Test
     @Order(3)
-    @DisplayName("Test for adding a valid payment with BVA")
+    @DisplayName("TC3_BVA")
     void addPaymentValidBVA() {
     }
 
     @Test
     @Order(4)
-    @DisplayName("Test for adding a non-valid payment with BVA")
+    @DisplayName("TC8_BVA")
     void addPaymentNonValidBVA() {
     }
 }
