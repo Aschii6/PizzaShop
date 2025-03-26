@@ -25,7 +25,7 @@
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Test valid ECP.</p>
 </td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table: integer, 1 &lt;= table &lt;= 8</p>
 
-<p>amount: double, 0 &lt; amount &lt; 1000.0</p>
+<p>amount: double, 0 &lt; amount &lt;= 10000.0</p>
 
 <p>type: PaymentType, type is CASH or CARD</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
@@ -42,7 +42,7 @@
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Test invalid ECP.</p>
 </td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table: integer, 1 &lt;= table &lt;= 8</p>
 
-<p>amount: double, 0 &lt; amount &lt; 1000.0</p>
+<p>amount: double, 0 &lt; amount &lt;= 10000.0</p>
 
 <p>type: PaymentType, type is CASH or CARD</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
@@ -59,7 +59,7 @@
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Test valid BVA.</p>
 </td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table: integer, 1 &lt;= table &lt;= 8</p>
 
-<p>amount: double, 0 &lt; amount &lt; 1000.0</p>
+<p>amount: double, 0 &lt; amount &lt;= 10000.0</p>
 
 <p>type: PaymentType, type is CASH or CARD</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
@@ -76,7 +76,7 @@
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Test invalid BVA.</p>
 </td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table: integer, 1 &lt;= table &lt;= 8</p>
 
-<p>amount: double, 0 &lt; amount &lt; 1000.0</p>
+<p>amount: double, 0 &lt; amount &lt;= 10000.0</p>
 
 <p>type: PaymentType, type is CASH or CARD</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
