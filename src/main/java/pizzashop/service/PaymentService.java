@@ -8,12 +8,12 @@ import pizzashop.repository.PaymentRepository;
 
 import java.util.List;
 
-public class PizzaService {
+public class PaymentService {
 
     private MenuRepository menuRepo;
     private PaymentRepository payRepo;
 
-    public PizzaService(MenuRepository menuRepo, PaymentRepository payRepo){
+    public PaymentService(MenuRepository menuRepo, PaymentRepository payRepo){
         this.menuRepo=menuRepo;
         this.payRepo=payRepo;
     }
@@ -22,10 +22,17 @@ public class PizzaService {
 
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
-    public void addPayment(int table, PaymentType type, double amount){
-        Payment payment= new Payment(table, type, amount);
+    public void addPayment(int table, PaymentType type, double amount) {
+        if (amount < 0 || amount > 10000.0) {
+            throw new IllegalArgumentException("Error message - Invalid amount.");
+        }
+        if(table < 1 || table > 8){
+            throw new IllegalArgumentException("Table number must be between 1 and 8");
+        }
+        Payment payment = new Payment(table, type, amount);
         payRepo.add(payment);
     }
+
 
     public double getTotalAmount(PaymentType type){
         double total=0.0f;
