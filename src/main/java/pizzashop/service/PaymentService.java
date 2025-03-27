@@ -23,8 +23,8 @@ public class PaymentService {
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
     public void addPayment(int table, PaymentType type, double amount) {
-        if (amount < 0 || amount > 10000.0) {
-            throw new IllegalArgumentException("Error message - Invalid amount.");
+        if (amount <= 0 || amount > 10000.0) {
+            throw new IllegalArgumentException("Invalid amount.");
         }
         if(table < 1 || table > 8){
             throw new IllegalArgumentException("Table number must be between 1 and 8");

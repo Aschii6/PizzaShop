@@ -27,7 +27,7 @@ class PaymentServiceTest {
 
     @Test
     @Order(1)
-    @DisplayName("TC1_ECP - Adăugare plată validă")
+    @DisplayName("TC1_ECP")
     @Tag("ECP")
     @Timeout(1)
     void addPaymentValidECP() {
@@ -37,19 +37,19 @@ class PaymentServiceTest {
 
     @Test
     @Order(2)
-    @DisplayName("TC2_ECP - Adăugare plată invalidă")
+    @DisplayName("TC2_ECP")
     @Tag("ECP")
     @Timeout(1)
     void addPaymentNonValidECP() {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> { service.addPayment(2, PaymentType.Card, -10.0);
                 },"Error message - Invalid amount.");
-        assertTrue(e.getMessage().contains("Error message - Invalid amount."),"Exception message does not match expected text.");
+        assertTrue(e.getMessage().contains("Invalid amount."),"Exception message does not match expected text.");
     }
 
 
     @Test
     @Order(3)
-    @DisplayName("TC3_BVA - Suma minimă validă")
+    @DisplayName("TC3_BVA")
     @Tag("BVA")
     @Timeout(1)
     void addPaymentValidBVA() {
@@ -59,7 +59,7 @@ class PaymentServiceTest {
 
     @Test
     @Order(4)
-    @DisplayName("TC8_BVA - Suma maximă invalidă")
+    @DisplayName("TC8_BVA")
     @Tag("BVA")
     @Timeout(1)
     void addPaymentNonValidBVA() {
