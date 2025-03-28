@@ -42,7 +42,7 @@ class PaymentServiceTest {
     @Timeout(1)
     void addPaymentNonValidECP() {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> { service.addPayment(2, PaymentType.Card, -10.0);
-                },"Error message - Invalid amount.");
+                },"Invalid amount.");
         assertTrue(e.getMessage().contains("Invalid amount."),"Exception message does not match expected text.");
     }
 
