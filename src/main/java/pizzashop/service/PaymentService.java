@@ -49,4 +49,17 @@ public class PaymentService {
         return total;
     }
 
+    public double getTotalAmount(PaymentType type, List<Payment> l) {
+        double total=0.0f;
+
+        if (l ==null) return total;
+
+        if ((l.isEmpty())) return total;
+
+        for (Payment p: l){
+            if (p.getType().equals(type))
+                total+=p.getAmount();
+        }
+        return total;
+    }
 }

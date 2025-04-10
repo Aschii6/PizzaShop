@@ -82,14 +82,13 @@ class PaymentServiceTest {
 
     @Test
     @Order(5)
-    @DisplayName("TC01_WBT")
+    @DisplayName("TC04_WBT")
     @Tag("WBT")
-    void getTotalAmountWBT1() {
-        service.addPayment(1, PaymentType.Cash, 18);
-        service.addPayment(2, PaymentType.Cash, 10);
-        service.addPayment(3, PaymentType.Card, 30);
+    void getTotalAmountWBT4() {
+        service.addPayment(3, PaymentType.Card, 15);
+        service.addPayment(1, PaymentType.Cash, 28);
 
-        assertEquals(28.0f, service.getTotalAmount(PaymentType.Cash));
+        assertEquals(28.0f, service.getTotalAmount(PaymentType.Cash, service.getPayments()));
     }
 
     @Test
@@ -97,17 +96,14 @@ class PaymentServiceTest {
     @DisplayName("TC02_WBT")
     @Tag("WBT")
     void getTotalAmountWBT2() {
-        service.addPayment(1, PaymentType.Cash, 18);
-        service.addPayment(2, PaymentType.Cash, 10);
-
-        assertEquals(0.0f, service.getTotalAmount(PaymentType.Card));
+        assertEquals(0.0f, service.getTotalAmount(PaymentType.Card, service.getPayments()));
     }
 
     @Test
     @Order(7)
-    @DisplayName("TC05_WBT")
+    @DisplayName("TC03_WBT")
     @Tag("WBT")
-    void getTotalAmountWBT5() {
-        assertEquals(0.0f, service.getTotalAmount(PaymentType.Cash));
+    void getTotalAmountWBT3() {
+        assertEquals(0.0f, service.getTotalAmount(PaymentType.Cash, null));
     }
 }
