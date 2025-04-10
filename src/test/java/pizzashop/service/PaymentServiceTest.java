@@ -1,19 +1,28 @@
 package pizzashop.service;
 import org.junit.jupiter.api.*;
+import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentServiceTest {
     private PaymentService service;
     private PaymentRepository repository;
+
+    private List<Payment> payments = new ArrayList<>();
+
     @BeforeEach
     void setUp() {
         MenuRepository repoMenu = new MenuRepository();
         this.repository = new PaymentRepository();
         this.service = new PaymentService(repoMenu,repository);
+
+        payments = new ArrayList<>(repository.getAll());
 
         repository.getAll().clear();
         repository.writeAll();
@@ -22,6 +31,9 @@ class PaymentServiceTest {
     @AfterEach
     void tearDown() {
         repository.getAll().clear();
+
+        repository.getAll().addAll(payments);
+
         repository.writeAll();
     }
 
@@ -66,5 +78,36 @@ class PaymentServiceTest {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> { service.addPayment(9, PaymentType.Card, 50);
         },"Table number must be between 1 and 8");
         assertTrue(e.getMessage().contains("Table number must be between 1 and 8"),"Exception message does not match expected text.");
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("TC01_WBT")
+    @Tag("WBT")
+    void getTotalAmountWBT1() {
+        service.addPayment(1, PaymentType.Cash, 18);
+        service.addPayment(2, PaymentType.Cash, 10);
+        service.addPayment(3, PaymentType.Card, 30);
+
+        assertEquals(28.0f, service.getTotalAmount(PaymentType.Cash));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("TC02_WBT")
+    @Tag("WBT")
+    void getTotalAmountWBT2() {
+        service.addPayment(1, PaymentType.Cash, 18);
+        service.addPayment(2, PaymentType.Cash, 10);
+
+        assertEquals(0.0f, service.getTotalAmount(PaymentType.Card));
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("TC05_WBT")
+    @Tag("WBT")
+    void getTotalAmountWBT5() {
+        assertEquals(0.0f, service.getTotalAmount(PaymentType.Cash));
     }
 }
