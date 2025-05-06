@@ -17,9 +17,13 @@ public class PaymentRepository {
         readPayments();
     }
 
-    private void readPayments(){
+    void readPayments(){
         //ClassLoader classLoader = PaymentRepository.class.getClassLoader();
         File file = new File(filename);
+        if (!file.exists()) {
+            // nu avem nimic de citit
+            return;
+        }
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = null;
