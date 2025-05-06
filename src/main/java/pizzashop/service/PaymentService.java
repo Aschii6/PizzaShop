@@ -23,8 +23,8 @@ public class PaymentService {
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
     public void addPayment(int table, PaymentType type, double amount) {
-        if (amount < 0 || amount > 10000.0) {
-            throw new IllegalArgumentException("Error message - Invalid amount.");
+        if (amount <= 0 || amount > 10000.0) {
+            throw new IllegalArgumentException("Invalid amount.");
         }
         if(table < 1 || table > 8){
             throw new IllegalArgumentException("Table number must be between 1 and 8");
@@ -37,7 +37,11 @@ public class PaymentService {
     public double getTotalAmount(PaymentType type){
         double total=0.0f;
         List<Payment> l=getPayments();
-        if ((l==null) ||(l.size()==0)) return total;
+
+        if (l==null) return total;
+
+        if ((l.isEmpty())) return total;
+
         for (Payment p:l){
             if (p.getType().equals(type))
                 total+=p.getAmount();
@@ -45,4 +49,17 @@ public class PaymentService {
         return total;
     }
 
+    public double getTotalAmount(PaymentType type, List<Payment> l) {
+        double total=0.0f;
+
+        if (l ==null) return total;
+
+        if ((l.isEmpty())) return total;
+
+        for (Payment p: l){
+            if (p.getType().equals(type))
+                total+=p.getAmount();
+        }
+        return total;
+    }
 }
